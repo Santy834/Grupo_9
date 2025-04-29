@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://3ktiar3m4oee"]
+
+[ext_resource type="Script" path="res://Personaje/diaz.gd" id="1_c6bfn"]
+[ext_resource type="Texture2D" uid="uid://bsqxjlpvkluw2" path="res://Personaje/icon.svg" id="2_spbbj"]
+[ext_resource type="Script" path="res://Personaje/inventario.gd" id="3_0j1cm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16ljk"]
+size = Vector2(129, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dht01"]
+size = Vector2(169, 163)
+
+[node name="Diaz" type="CharacterBody2D"]
+script = ExtResource("1_c6bfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_16ljk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_spbbj")
+
+[node name="Inventario" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_0j1cm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventario"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_dht01")
+
+[connection signal="area_entered" from="Inventario" to="Inventario" method="_on_area_entered"]

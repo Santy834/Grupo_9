@@ -12,4 +12,4 @@ config_version=5
 
 config/name="Error_404_Cyber_Draw"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Personaje/icon.svg"
